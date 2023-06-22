@@ -7,7 +7,6 @@
 * Return: 0 on success
 */
 
-bus_t bus = {NULL, NULL, NULL, 0};
 
 int main(int argc, char *argv[])
 {

@@ -1,5 +1,7 @@
 #include "monty.h"
 
+bus_t bus = {NULL, NULL, NULL, 0};
+
 /**
  * my_pall - prints the stack
  * @head: stack head
@@ -40,22 +42,32 @@ void my_push(stack_t **head, unsigned int counter)
 		for (; bus.arg[i] != '\0'; i++)
 		{
 			if (bus.arg[i] > 57 || bus.arg[i] < 48)
-				arg = 1; }
+				arg = 1;
+		}
 		if (arg == 1)
-		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", counter);
 			fclose(bus.file);
 			free(bus.content);
 			free_stack(*head);
-			exit(EXIT_FAILURE); }}
+			exit(EXIT_FAILURE);
+		}
+	}
 	else
-	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
-		exit(EXIT_FAILURE); }
+		exit(EXIT_FAILURE);
+	}
 	num = atoi(bus.arg);
 	if (bus.lifi == 0)
+	{
 		addnode(head, num);
+	}
 	else
+	{
 		addqueue(head, num);
+	}
 }
