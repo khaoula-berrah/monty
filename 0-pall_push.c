@@ -1,7 +1,5 @@
 #include "monty.h"
 
-bus_t bus = {NULL, NULL, NULL, 0};
-
 /**
  * my_pall - prints the stack
  * @head: stack head
@@ -33,6 +31,7 @@ void my_pall(stack_t **head, unsigned int counter)
 
 void my_push(stack_t **head, unsigned int counter)
 {
+	bus_t bus = {NULL, NULL, NULL, 0};
 	int num, i = 0, arg = 0;
 
 	if (bus.arg)
